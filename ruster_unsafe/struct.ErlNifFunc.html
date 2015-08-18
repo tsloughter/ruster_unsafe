@@ -34,56 +34,73 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
     </nav>
 
     <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>ruster_unsafe</a>::<wbr><a class='struct' href=''>ErlNifFunc</a><wbr></span><span class='out-of-band'><span id='render-detail'>
-            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
-        </span><a id='src-31' href='../src/ruster_unsafe/lib.rs.html#166-171'>[src]</a></span></h1>
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>ruster_unsafe</a>::<wbr><a class='struct' href=''>ErlNifFunc</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-32' class='srclink' href='../src/ruster_unsafe/lib.rs.html#166-171' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct ErlNifFunc {
-    pub name: *const <a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>,
+    pub name: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a></a>,
     pub arity: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>,
-    pub function:  extern "C" fn(env: *mut <a class='struct' href='../ruster_unsafe/struct.ErlNifEnv.html' title='ruster_unsafe::ErlNifEnv'>ErlNifEnv</a>, argc: <a class='type' href='../ruster_unsafe/type.c_int.html' title='ruster_unsafe::c_int'>c_int</a>, argv: *const <a class='type' href='../ruster_unsafe/type.ERL_NIF_TERM.html' title='ruster_unsafe::ERL_NIF_TERM'>ERL_NIF_TERM</a>) -&gt; <a class='type' href='../ruster_unsafe/type.ERL_NIF_TERM.html' title='ruster_unsafe::ERL_NIF_TERM'>ERL_NIF_TERM</a>,
+    pub function:  extern "C" fn(env: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../ruster_unsafe/struct.ErlNifEnv.html' title='ruster_unsafe::ErlNifEnv'>ErlNifEnv</a></a>, argc: <a class='type' href='../ruster_unsafe/type.c_int.html' title='ruster_unsafe::c_int'>c_int</a>, argv: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='type' href='../ruster_unsafe/type.ERL_NIF_TERM.html' title='ruster_unsafe::ERL_NIF_TERM'>ERL_NIF_TERM</a></a>) -&gt; <a class='type' href='../ruster_unsafe/type.ERL_NIF_TERM.html' title='ruster_unsafe::ERL_NIF_TERM'>ERL_NIF_TERM</a>,
     pub flags: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>,
 }</pre><div class='docblock'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifFunc">ErlNifFunc</a> in the Erlang docs.</p>
 </div><h2 class='fields'>Fields</h2>
-<table><tr><td id='structfield.name'><a class='stability Unmarked' title='No stability level'></a><code>name</code></td><td></td></tr><tr><td id='structfield.arity'><a class='stability Unmarked' title='No stability level'></a><code>arity</code></td><td></td></tr><tr><td id='structfield.function'><a class='stability Unmarked' title='No stability level'></a><code>function</code></td><td></td></tr><tr><td id='structfield.flags'><a class='stability Unmarked' title='No stability level'></a><code>flags</code></td><td></td></tr></table></section>
+<table><tr class='stab '>
+                                  <td id='structfield.name'><code>name</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.arity'><code>arity</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.function'><code>function</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.flags'><code>flags</code></td><td></td></tr></table></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
 
     <div id="help" class="hidden">
-        <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
-            <dl>
-                <dt>?</dt>
-                <dd>Show this help dialog</dd>
-                <dt>S</dt>
-                <dd>Focus the search field</dd>
-                <dt>&larrb;</dt>
-                <dd>Move up in search results</dd>
-                <dt>&rarrb;</dt>
-                <dd>Move down in search results</dd>
-                <dt>&#9166;</dt>
-                <dd>Go to active search result</dd>
-            </dl>
-        </div>
-        <div class="infos">
-            <h1>Search tricks</h1>
-            <p>
-                Prefix searches with a type followed by a colon (e.g.
-                <code>fn:</code>) to restrict the search to a given type.
-            </p>
-            <p>
-                Accepted types are: <code>fn</code>, <code>mod</code>,
-                <code>struct</code>, <code>enum</code>,
-                <code>trait</code>, <code>typedef</code> (or
-                <code>tdef</code>).
-            </p>
+        <div>
+            <div class="shortcuts">
+                <h1>Keyboard Shortcuts</h1>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h1>Search Tricks</h1>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>typedef</code> (or
+                    <code>tdef</code>).
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
         </div>
     </div>
 

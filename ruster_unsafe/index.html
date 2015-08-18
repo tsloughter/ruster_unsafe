@@ -34,16 +34,18 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
     </nav>
 
     <section id='main' class="content mod">
-<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>ruster_unsafe</a><wbr></span><span class='out-of-band'><a href='stability.html'>[stability]</a> <span id='render-detail'>
-            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
-        </span><a id='src-0' href='../src/ruster_unsafe/lib.rs.html#1-362'>[src]</a></span></h1>
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>ruster_unsafe</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-0' class='srclink' href='../src/ruster_unsafe/lib.rs.html#1-362' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Low level Rust bindings to the <a href="http://www.erlang.org/doc/man/erl_nif.html">Erlang NIF API</a>.</p>
 
 <h1 id="nif-crate" class='section-header'><a
@@ -54,7 +56,7 @@
 <h1 id="nif-functions" class='section-header'><a
                            href="#nif-functions">NIF Functions</a></h1>
 <p>All NIF functions must have the following signature:</p>
-<pre id='rust-example-rendered' class='rust '>
+<pre class='rust rust-example-rendered'>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>ruster_unsafe</span>;
 <span class='kw'>use</span> <span class='ident'>ruster_unsafe</span>::<span class='op'>*</span>;
 <span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> <span class='kw'>fn</span> <span class='ident'>my_nif</span>(<span class='ident'>env</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ErlNifEnv</span>,
@@ -67,7 +69,7 @@
 <h1 id="nif-module-initialization" class='section-header'><a
                            href="#nif-module-initialization">NIF Module Initialization</a></h1>
 <h2 id="for-the-impatient" class='section-header'><a
-                           href="#for-the-impatient">For the Impatient</a></h2><pre id='rust-example-rendered' class='rust '>
+                           href="#for-the-impatient">For the Impatient</a></h2><pre class='rust rust-example-rendered'>
 <span class='attribute'>#[<span class='ident'>macro_use</span>]</span>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>ruster_unsafe</span>;
 <span class='kw'>use</span> <span class='ident'>ruster_unsafe</span>::<span class='op'>*</span>;
@@ -75,8 +77,7 @@
 <span class='macro'>nif_init</span><span class='macro'>!</span>(<span class='string'>b&quot;my_nif_module\0&quot;</span>, <span class='prelude-val'>Some</span>(<span class='ident'>load</span>), <span class='prelude-val'>None</span>, <span class='prelude-val'>None</span>, <span class='prelude-val'>None</span>,
     <span class='macro'>nif</span><span class='macro'>!</span>(<span class='string'>b&quot;my_nif_fun1\0&quot;</span>, <span class='number'>1</span>, <span class='ident'>my_nif_fun1</span>),
     <span class='macro'>nif</span><span class='macro'>!</span>(<span class='string'>b&quot;my_dirty_fun2\0&quot;</span>, <span class='number'>1</span>, <span class='ident'>my_dirty_fun2</span>, <span class='ident'>ERL_NIF_DIRTY_JOB_CPU_BOUND</span>)
-);
-</pre>
+);</pre>
 
 <h2 id="details" class='section-header'><a
                            href="#details">Details</a></h2>
@@ -89,7 +90,7 @@
 <p>load, reload, upgrade, and unload are optional functions.  See <a href="http://www.erlang.org/doc/man/erl_nif.html#load">load</a>, <a href="http://www.erlang.org/doc/man/erl_nif.html#reload">reload</a>,
 <a href="http://www.erlang.org/doc/man/erl_nif.html#upgrade">upgrade</a>, and <a href="http://www.erlang.org/doc/man/erl_nif.html#unload">unload</a>
 in the Erlang docs.  Stub implementations in Rust are:</p>
-<pre id='rust-example-rendered' class='rust '>
+<pre class='rust rust-example-rendered'>
 <span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> <span class='kw'>fn</span> <span class='ident'>load</span>(<span class='ident'>env</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ErlNifEnv</span>,
                    <span class='ident'>priv_data</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_void</span>,
                    <span class='ident'>load_info</span>: <span class='ident'>ERL_NIF_TERM</span>)<span class='op'>-&gt;</span> <span class='ident'>c_int</span> { <span class='number'>0</span> }
@@ -104,8 +105,7 @@ in the Erlang docs.  Stub implementations in Rust are:</p>
                       <span class='ident'>load_info</span>: <span class='ident'>ERL_NIF_TERM</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span> { <span class='number'>0</span> }
 
 <span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> <span class='kw'>fn</span> <span class='ident'>unload</span>(<span class='ident'>env</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ErlNifEnv</span>,
-                     <span class='ident'>priv_data</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_void</span>) {}
-</pre>
+                     <span class='ident'>priv_data</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_void</span>) {}</pre>
 
 <p><code>nif!</code> declares NIF functions inside <code>nif_init!</code>:</p>
 
@@ -121,7 +121,7 @@ in the Erlang docs.</p>
 <p>As with any Rust FFI call, NIF API calls must be wrapped in <code>unsafe</code> blocks.
 Below is an example of invoking NIF APIs along with an approach for dealing with
 the the <code>args</code> parameter.</p>
-<pre id='rust-example-rendered' class='rust '>
+<pre class='rust rust-example-rendered'>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>ruster_unsafe</span>;
 <span class='kw'>use</span> <span class='ident'>ruster_unsafe</span>::<span class='op'>*</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>uninitialized</span>;
@@ -140,8 +140,7 @@ the the <code>args</code> parameter.</p>
             <span class='ident'>enif_make_badarg</span>(<span class='ident'>env</span>)
          }
     }
-}
-</pre>
+}</pre>
 
 <h1 id="examples" class='section-header'><a
                            href="#examples">Examples</a></h1>
@@ -158,786 +157,1028 @@ the the <code>args</code> parameter.</p>
 </ul>
 </div><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
 <table>
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='macro' href='macro.nif!.html'
+                    <tr class=' module-item'>
+                        <td><a class='macro' href='macro.nif!.html'
                                title='ruster_unsafe::nif!'>nif!</a></td>
-                        <td class='docblock short'><p>Create ErlNifFunc structure.  Use inside <code>nif_init!</code>.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Create ErlNifFunc structure.  Use inside <code>nif_init!</code>.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='macro' href='macro.nif_init!.html'
+                    <tr class=' module-item'>
+                        <td><a class='macro' href='macro.nif_init!.html'
                                title='ruster_unsafe::nif_init!'>nif_init!</a></td>
-                        <td class='docblock short'><p>Register NIFs and supporting functions for your module.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Register NIFs and supporting functions for your module.</p>
+
+                        </td>
                     </tr>
                 </table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.ErlNifBinary.html'
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ErlNifBinary.html'
                                title='ruster_unsafe::ErlNifBinary'>ErlNifBinary</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifBinary">ErlNifBinary</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifBinary">ErlNifBinary</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.ErlNifEnv.html'
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ErlNifEnv.html'
                                title='ruster_unsafe::ErlNifEnv'>ErlNifEnv</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifEnv">ErlNifEnv</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifEnv">ErlNifEnv</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.ErlNifFunc.html'
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ErlNifFunc.html'
                                title='ruster_unsafe::ErlNifFunc'>ErlNifFunc</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifFunc">ErlNifFunc</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifFunc">ErlNifFunc</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.ErlNifMapIterator.html'
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ErlNifMapIterator.html'
                                title='ruster_unsafe::ErlNifMapIterator'>ErlNifMapIterator</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifMapIterator">ErlNifMapIterator</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifMapIterator">ErlNifMapIterator</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.ErlNifPid.html'
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ErlNifPid.html'
                                title='ruster_unsafe::ErlNifPid'>ErlNifPid</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifPid">ErlNifPid</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifPid">ErlNifPid</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.ErlNifResourceType.html'
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ErlNifResourceType.html'
                                title='ruster_unsafe::ErlNifResourceType'>ErlNifResourceType</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifResourceType">ErlNifResourceType</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifResourceType">ErlNifResourceType</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.ErlNifSysInfo.html'
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ErlNifSysInfo.html'
                                title='ruster_unsafe::ErlNifSysInfo'>ErlNifSysInfo</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifSysInfo">ErlNifSysInfo</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifSysInfo">ErlNifSysInfo</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='enum' href='enum.ErlNifCharEncoding.html'
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.ErlNifCharEncoding.html'
                                title='ruster_unsafe::ErlNifCharEncoding'>ErlNifCharEncoding</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifCharEncoding">ErlNifCharEncoding</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifCharEncoding">ErlNifCharEncoding</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='enum' href='enum.ErlNifMapIteratorEntry.html'
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.ErlNifMapIteratorEntry.html'
                                title='ruster_unsafe::ErlNifMapIteratorEntry'>ErlNifMapIteratorEntry</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifMapIteratorEntry">ErlNifMapIteratorEntry</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifMapIteratorEntry">ErlNifMapIteratorEntry</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='enum' href='enum.ErlNifResourceFlags.html'
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.ErlNifResourceFlags.html'
                                title='ruster_unsafe::ErlNifResourceFlags'>ErlNifResourceFlags</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifResourceFlags">ErlNifResourceFlags</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifResourceFlags">ErlNifResourceFlags</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='enum' href='enum.c_void.html'
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.c_void.html'
                                title='ruster_unsafe::c_void'>c_void</a></td>
-                        <td class='docblock short'><p>Type used to construct void pointers for use with C.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Type used to construct void pointers for use with C.</p>
+
+                        </td>
                     </tr>
                 </table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
 <table>
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='constant' href='constant.ERL_NIF_DIRTY_JOB_CPU_BOUND.html'
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.ERL_NIF_DIRTY_JOB_CPU_BOUND.html'
                                title='ruster_unsafe::ERL_NIF_DIRTY_JOB_CPU_BOUND'>ERL_NIF_DIRTY_JOB_CPU_BOUND</a></td>
-                        <td class='docblock short'></td>
+                        <td class='docblock short'>
+                             
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='constant' href='constant.ERL_NIF_DIRTY_JOB_IO_BOUND.html'
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.ERL_NIF_DIRTY_JOB_IO_BOUND.html'
                                title='ruster_unsafe::ERL_NIF_DIRTY_JOB_IO_BOUND'>ERL_NIF_DIRTY_JOB_IO_BOUND</a></td>
-                        <td class='docblock short'></td>
+                        <td class='docblock short'>
+                             
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='constant' href='constant.NIF_MAJOR_VERSION.html'
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.NIF_MAJOR_VERSION.html'
                                title='ruster_unsafe::NIF_MAJOR_VERSION'>NIF_MAJOR_VERSION</a></td>
-                        <td class='docblock short'></td>
+                        <td class='docblock short'>
+                             
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='constant' href='constant.NIF_MINOR_VERSION.html'
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.NIF_MINOR_VERSION.html'
                                title='ruster_unsafe::NIF_MINOR_VERSION'>NIF_MINOR_VERSION</a></td>
-                        <td class='docblock short'></td>
+                        <td class='docblock short'>
+                             
+                        </td>
                     </tr>
                 </table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_alloc.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_alloc.html'
                                title='ruster_unsafe::enif_alloc'>enif_alloc</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_alloc">enif_alloc</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_alloc">enif_alloc</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_alloc_binary.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_alloc_binary.html'
                                title='ruster_unsafe::enif_alloc_binary'>enif_alloc_binary</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_alloc_binary">enif_alloc_binary</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_alloc_binary">enif_alloc_binary</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_alloc_env.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_alloc_env.html'
                                title='ruster_unsafe::enif_alloc_env'>enif_alloc_env</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_alloc_env">enif_alloc_env</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_alloc_env">enif_alloc_env</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_alloc_resource.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_alloc_resource.html'
                                title='ruster_unsafe::enif_alloc_resource'>enif_alloc_resource</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_alloc_resource">enif_alloc_resource</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_alloc_resource">enif_alloc_resource</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_clear_env.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_clear_env.html'
                                title='ruster_unsafe::enif_clear_env'>enif_clear_env</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_clear_env">enif_clear_env</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_clear_env">enif_clear_env</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_compare.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_compare.html'
                                title='ruster_unsafe::enif_compare'>enif_compare</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_compare">enif_compare</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_compare">enif_compare</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_consume_timeslice.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_consume_timeslice.html'
                                title='ruster_unsafe::enif_consume_timeslice'>enif_consume_timeslice</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_consume_timeslice">enif_consume_timeslice</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_consume_timeslice">enif_consume_timeslice</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_dlopen.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_dlopen.html'
                                title='ruster_unsafe::enif_dlopen'>enif_dlopen</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_dlopen">enif_dlopen</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_dlopen">enif_dlopen</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_dlsym.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_dlsym.html'
                                title='ruster_unsafe::enif_dlsym'>enif_dlsym</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_dlsym">enif_dlsym</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_dlsym">enif_dlsym</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_free.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_free.html'
                                title='ruster_unsafe::enif_free'>enif_free</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_free">enif_free</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_free">enif_free</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_free_env.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_free_env.html'
                                title='ruster_unsafe::enif_free_env'>enif_free_env</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_free_env">enif_free_env</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_free_env">enif_free_env</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_atom.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_atom.html'
                                title='ruster_unsafe::enif_get_atom'>enif_get_atom</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_atom">enif_get_atom</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_atom">enif_get_atom</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_atom_length.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_atom_length.html'
                                title='ruster_unsafe::enif_get_atom_length'>enif_get_atom_length</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_atom_length">enif_get_atom_length</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_atom_length">enif_get_atom_length</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_double.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_double.html'
                                title='ruster_unsafe::enif_get_double'>enif_get_double</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_double">enif_get_double</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_double">enif_get_double</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_int.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_int.html'
                                title='ruster_unsafe::enif_get_int'>enif_get_int</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_int">enif_get_int</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_int">enif_get_int</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_int64.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_int64.html'
                                title='ruster_unsafe::enif_get_int64'>enif_get_int64</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_int64">enif_get_int64</a> at erlang.org</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_int64">enif_get_int64</a> at erlang.org</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_list_cell.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_list_cell.html'
                                title='ruster_unsafe::enif_get_list_cell'>enif_get_list_cell</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_list_cell">enif_get_list_cell</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_list_cell">enif_get_list_cell</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_list_length.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_list_length.html'
                                title='ruster_unsafe::enif_get_list_length'>enif_get_list_length</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_list_length">enif_get_list_length</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_list_length">enif_get_list_length</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_local_pid.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_local_pid.html'
                                title='ruster_unsafe::enif_get_local_pid'>enif_get_local_pid</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_local_pid">enif_get_local_pid</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_local_pid">enif_get_local_pid</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_long.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_long.html'
                                title='ruster_unsafe::enif_get_long'>enif_get_long</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_long">enif_get_long</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_long">enif_get_long</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_map_size.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_map_size.html'
                                title='ruster_unsafe::enif_get_map_size'>enif_get_map_size</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_map_size">enif_get_map_size</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_map_size">enif_get_map_size</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_map_value.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_map_value.html'
                                title='ruster_unsafe::enif_get_map_value'>enif_get_map_value</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_map_value">enif_get_map_value</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_map_value">enif_get_map_value</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_resource.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_resource.html'
                                title='ruster_unsafe::enif_get_resource'>enif_get_resource</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_resource">enif_get_resource</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_resource">enif_get_resource</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_string.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_string.html'
                                title='ruster_unsafe::enif_get_string'>enif_get_string</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_string">enif_get_string</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_string">enif_get_string</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_tuple.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_tuple.html'
                                title='ruster_unsafe::enif_get_tuple'>enif_get_tuple</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_tuple">enif_get_tuple</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_tuple">enif_get_tuple</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_uint.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_uint.html'
                                title='ruster_unsafe::enif_get_uint'>enif_get_uint</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_uint">enif_get_uint</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_uint">enif_get_uint</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_uint64.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_uint64.html'
                                title='ruster_unsafe::enif_get_uint64'>enif_get_uint64</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_uint64">enif_get_uint64</a> at erlang.org</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_uint64">enif_get_uint64</a> at erlang.org</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_get_ulong.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_get_ulong.html'
                                title='ruster_unsafe::enif_get_ulong'>enif_get_ulong</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_ulong">enif_get_ulong</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_get_ulong">enif_get_ulong</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_inspect_binary.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_has_pending_exception.html'
+                               title='ruster_unsafe::enif_has_pending_exception'>enif_has_pending_exception</a></td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_has_pending_exception">enif_has_pending_exception</a> in the Erlang docs.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_inspect_binary.html'
                                title='ruster_unsafe::enif_inspect_binary'>enif_inspect_binary</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_inspect_binary">enif_inspect_binary</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_inspect_binary">enif_inspect_binary</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_inspect_iolist_as_binary.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_inspect_iolist_as_binary.html'
                                title='ruster_unsafe::enif_inspect_iolist_as_binary'>enif_inspect_iolist_as_binary</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_inspect_iolist_as_binary">enif_inspect_iolist_as_binary</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_inspect_iolist_as_binary">enif_inspect_iolist_as_binary</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_atom.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_atom.html'
                                title='ruster_unsafe::enif_is_atom'>enif_is_atom</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_atom">enif_is_atom</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_atom">enif_is_atom</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_binary.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_binary.html'
                                title='ruster_unsafe::enif_is_binary'>enif_is_binary</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_binary">enif_is_binary</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_binary">enif_is_binary</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_empty_list.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_empty_list.html'
                                title='ruster_unsafe::enif_is_empty_list'>enif_is_empty_list</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_empty_list">enif_is_empty_list</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_empty_list">enif_is_empty_list</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_exception.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_exception.html'
                                title='ruster_unsafe::enif_is_exception'>enif_is_exception</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_exception">enif_is_exception</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_exception">enif_is_exception</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_fun.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_fun.html'
                                title='ruster_unsafe::enif_is_fun'>enif_is_fun</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_fun">enif_is_fun</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_fun">enif_is_fun</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_identical.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_identical.html'
                                title='ruster_unsafe::enif_is_identical'>enif_is_identical</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_identical">enif_is_identical</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_identical">enif_is_identical</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_list.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_list.html'
                                title='ruster_unsafe::enif_is_list'>enif_is_list</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_list">enif_is_list</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_list">enif_is_list</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_map.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_map.html'
                                title='ruster_unsafe::enif_is_map'>enif_is_map</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_map">enif_is_map</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_map">enif_is_map</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_number.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_number.html'
                                title='ruster_unsafe::enif_is_number'>enif_is_number</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_number">enif_is_number</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_number">enif_is_number</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_on_dirty_scheduler.html'
-                               title='ruster_unsafe::enif_is_on_dirty_scheduler'>enif_is_on_dirty_scheduler</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_on_dirty_scheduler">enif_is_on_dirty_scheduler</a> in the Erlang docs.</p>
-</td>
-                    </tr>
-                
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_pid.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_pid.html'
                                title='ruster_unsafe::enif_is_pid'>enif_is_pid</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_pid">enif_is_pid</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_pid">enif_is_pid</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_port.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_port.html'
                                title='ruster_unsafe::enif_is_port'>enif_is_port</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_port">enif_is_port</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_port">enif_is_port</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_ref.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_ref.html'
                                title='ruster_unsafe::enif_is_ref'>enif_is_ref</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_ref">enif_is_ref</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_ref">enif_is_ref</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_is_tuple.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_is_tuple.html'
                                title='ruster_unsafe::enif_is_tuple'>enif_is_tuple</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_tuple">enif_is_tuple</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_is_tuple">enif_is_tuple</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_keep_resource.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_keep_resource.html'
                                title='ruster_unsafe::enif_keep_resource'>enif_keep_resource</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_keep_resource">enif_keep_resource</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_keep_resource">enif_keep_resource</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_atom.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_atom.html'
                                title='ruster_unsafe::enif_make_atom'>enif_make_atom</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_atom">enif_make_atom</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_atom">enif_make_atom</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_atom_len.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_atom_len.html'
                                title='ruster_unsafe::enif_make_atom_len'>enif_make_atom_len</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_atom_len">enif_make_atom_len</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_atom_len">enif_make_atom_len</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_badarg.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_badarg.html'
                                title='ruster_unsafe::enif_make_badarg'>enif_make_badarg</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_badarg">enif_make_badarg</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_badarg">enif_make_badarg</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_binary.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_binary.html'
                                title='ruster_unsafe::enif_make_binary'>enif_make_binary</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_binary">enif_make_binary</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_binary">enif_make_binary</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_copy.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_copy.html'
                                title='ruster_unsafe::enif_make_copy'>enif_make_copy</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_copy">enif_make_copy</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_copy">enif_make_copy</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_double.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_double.html'
                                title='ruster_unsafe::enif_make_double'>enif_make_double</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_double">enif_make_double</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_double">enif_make_double</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_existing_atom.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_existing_atom.html'
                                title='ruster_unsafe::enif_make_existing_atom'>enif_make_existing_atom</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_existing_atom">enif_make_existing_atom</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_existing_atom">enif_make_existing_atom</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_existing_atom_len.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_existing_atom_len.html'
                                title='ruster_unsafe::enif_make_existing_atom_len'>enif_make_existing_atom_len</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_existing_atom_len">enif_make_existing_atom_len</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_existing_atom_len">enif_make_existing_atom_len</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_int.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_int.html'
                                title='ruster_unsafe::enif_make_int'>enif_make_int</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_int">enif_make_int</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_int">enif_make_int</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_int64.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_int64.html'
                                title='ruster_unsafe::enif_make_int64'>enif_make_int64</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_int64">enif_make_int64</a> at erlang.org</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_int64">enif_make_int64</a> at erlang.org</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_list_cell.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_list_cell.html'
                                title='ruster_unsafe::enif_make_list_cell'>enif_make_list_cell</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_list_cell">enif_make_list_cell</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_list_cell">enif_make_list_cell</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_list_from_array.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_list_from_array.html'
                                title='ruster_unsafe::enif_make_list_from_array'>enif_make_list_from_array</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_list_from_array">enif_make_list_from_array</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_list_from_array">enif_make_list_from_array</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_long.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_long.html'
                                title='ruster_unsafe::enif_make_long'>enif_make_long</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_long">enif_make_long</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_long">enif_make_long</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_map_put.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_map_put.html'
                                title='ruster_unsafe::enif_make_map_put'>enif_make_map_put</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_map_put">enif_make_map_put</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_map_put">enif_make_map_put</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_map_remove.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_map_remove.html'
                                title='ruster_unsafe::enif_make_map_remove'>enif_make_map_remove</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_map_remove">enif_make_map_remove</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_map_remove">enif_make_map_remove</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_map_update.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_map_update.html'
                                title='ruster_unsafe::enif_make_map_update'>enif_make_map_update</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_map_update">enif_make_map_update</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_map_update">enif_make_map_update</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_new_binary.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_new_binary.html'
                                title='ruster_unsafe::enif_make_new_binary'>enif_make_new_binary</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_new_binary">enif_make_new_binary</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_new_binary">enif_make_new_binary</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_new_map.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_new_map.html'
                                title='ruster_unsafe::enif_make_new_map'>enif_make_new_map</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_new_map">enif_make_new_map</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_new_map">enif_make_new_map</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_ref.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_ref.html'
                                title='ruster_unsafe::enif_make_ref'>enif_make_ref</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_ref">enif_make_ref</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_ref">enif_make_ref</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_resource.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_resource.html'
                                title='ruster_unsafe::enif_make_resource'>enif_make_resource</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_resource">enif_make_resource</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_resource">enif_make_resource</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_resource_binary.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_resource_binary.html'
                                title='ruster_unsafe::enif_make_resource_binary'>enif_make_resource_binary</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_resource_binary">enif_make_resource_binary</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_resource_binary">enif_make_resource_binary</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_reverse_list.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_reverse_list.html'
                                title='ruster_unsafe::enif_make_reverse_list'>enif_make_reverse_list</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_reverse_list">enif_make_reverse_list</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_reverse_list">enif_make_reverse_list</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_string.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_string.html'
                                title='ruster_unsafe::enif_make_string'>enif_make_string</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_string">enif_make_string</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_string">enif_make_string</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_string_len.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_string_len.html'
                                title='ruster_unsafe::enif_make_string_len'>enif_make_string_len</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_string_len">enif_make_string_len</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_string_len">enif_make_string_len</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_sub_binary.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_sub_binary.html'
                                title='ruster_unsafe::enif_make_sub_binary'>enif_make_sub_binary</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_sub_binary">enif_make_sub_binary</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_sub_binary">enif_make_sub_binary</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_tuple_from_array.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_tuple_from_array.html'
                                title='ruster_unsafe::enif_make_tuple_from_array'>enif_make_tuple_from_array</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_tuple_from_array">enif_make_tuple_from_array</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_tuple_from_array">enif_make_tuple_from_array</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_uint.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_uint.html'
                                title='ruster_unsafe::enif_make_uint'>enif_make_uint</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_uint">enif_make_uint</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_uint">enif_make_uint</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_uint64.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_uint64.html'
                                title='ruster_unsafe::enif_make_uint64'>enif_make_uint64</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_uint64">enif_make_uint64</a> at erlang.org</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_uint64">enif_make_uint64</a> at erlang.org</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_make_ulong.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_make_ulong.html'
                                title='ruster_unsafe::enif_make_ulong'>enif_make_ulong</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_ulong">enif_make_ulong</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_make_ulong">enif_make_ulong</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_map_iterator_create.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_map_iterator_create.html'
                                title='ruster_unsafe::enif_map_iterator_create'>enif_map_iterator_create</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_create">enif_map_iterator_create</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_create">enif_map_iterator_create</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_map_iterator_destroy.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_map_iterator_destroy.html'
                                title='ruster_unsafe::enif_map_iterator_destroy'>enif_map_iterator_destroy</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_destroy">enif_map_iterator_destroy</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_destroy">enif_map_iterator_destroy</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_map_iterator_get_pair.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_map_iterator_get_pair.html'
                                title='ruster_unsafe::enif_map_iterator_get_pair'>enif_map_iterator_get_pair</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_get_pair">enif_map_iterator_get_pair</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_get_pair">enif_map_iterator_get_pair</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_map_iterator_is_head.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_map_iterator_is_head.html'
                                title='ruster_unsafe::enif_map_iterator_is_head'>enif_map_iterator_is_head</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_is_head">enif_map_iterator_is_head</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_is_head">enif_map_iterator_is_head</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_map_iterator_is_tail.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_map_iterator_is_tail.html'
                                title='ruster_unsafe::enif_map_iterator_is_tail'>enif_map_iterator_is_tail</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_is_tail">enif_map_iterator_is_tail</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_is_tail">enif_map_iterator_is_tail</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_map_iterator_next.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_map_iterator_next.html'
                                title='ruster_unsafe::enif_map_iterator_next'>enif_map_iterator_next</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_next">enif_map_iterator_next</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_next">enif_map_iterator_next</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_map_iterator_prev.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_map_iterator_prev.html'
                                title='ruster_unsafe::enif_map_iterator_prev'>enif_map_iterator_prev</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_prev">enif_map_iterator_prev</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_map_iterator_prev">enif_map_iterator_prev</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_open_resource_type.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_open_resource_type.html'
                                title='ruster_unsafe::enif_open_resource_type'>enif_open_resource_type</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_open_resource_type">enif_open_resource_type</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_open_resource_type">enif_open_resource_type</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_priv_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_priv_data.html'
                                title='ruster_unsafe::enif_priv_data'>enif_priv_data</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_priv_data">enif_priv_data</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_priv_data">enif_priv_data</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_realloc.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_raise_exception.html'
+                               title='ruster_unsafe::enif_raise_exception'>enif_raise_exception</a></td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_raise_exception">enif_raise_exception</a> in the Erlang docs.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_realloc.html'
                                title='ruster_unsafe::enif_realloc'>enif_realloc</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_realloc">enif_realloc</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_realloc">enif_realloc</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_realloc_binary.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_realloc_binary.html'
                                title='ruster_unsafe::enif_realloc_binary'>enif_realloc_binary</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_realloc_binary">enif_realloc_binary</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_realloc_binary">enif_realloc_binary</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_release_binary.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_release_binary.html'
                                title='ruster_unsafe::enif_release_binary'>enif_release_binary</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_release_binary">enif_release_binary</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_release_binary">enif_release_binary</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_release_resource.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_release_resource.html'
                                title='ruster_unsafe::enif_release_resource'>enif_release_resource</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_release_resource">enif_release_resource</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_release_resource">enif_release_resource</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_self.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_schedule_nif.html'
+                               title='ruster_unsafe::enif_schedule_nif'>enif_schedule_nif</a></td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_schedule_nif">enif_schedule_nif</a> in the Erlang docs.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_self.html'
                                title='ruster_unsafe::enif_self'>enif_self</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_self">enif_self</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_self">enif_self</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_send.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_send.html'
                                title='ruster_unsafe::enif_send'>enif_send</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_send">enif_send</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_send">enif_send</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_sizeof_resource.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_sizeof_resource.html'
                                title='ruster_unsafe::enif_sizeof_resource'>enif_sizeof_resource</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_sizeof_resource">enif_sizeof_resource</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_sizeof_resource">enif_sizeof_resource</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.enif_system_info.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.enif_system_info.html'
                                title='ruster_unsafe::enif_system_info'>enif_system_info</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_system_info">enif_system_info</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#enif_system_info">enif_system_info</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='type' href='type.ERL_NIF_TERM.html'
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.ERL_NIF_TERM.html'
                                title='ruster_unsafe::ERL_NIF_TERM'>ERL_NIF_TERM</a></td>
-                        <td class='docblock short'></td>
+                        <td class='docblock short'>
+                             
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='type' href='type.ERL_NIF_UINT.html'
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.ERL_NIF_UINT.html'
                                title='ruster_unsafe::ERL_NIF_UINT'>ERL_NIF_UINT</a></td>
-                        <td class='docblock short'></td>
+                        <td class='docblock short'>
+                             
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='type' href='type.ErlNifResourceDtor.html'
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.ErlNifResourceDtor.html'
                                title='ruster_unsafe::ErlNifResourceDtor'>ErlNifResourceDtor</a></td>
-                        <td class='docblock short'><p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifResourceDtor">ErlNifResourceDtor</a> in the Erlang docs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>See <a href="http://www.erlang.org/doc/man/erl_nif.html#ErlNifResourceDtor">ErlNifResourceDtor</a> in the Erlang docs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='type' href='type.c_int.html'
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.c_int.html'
                                title='ruster_unsafe::c_int'>c_int</a></td>
-                        <td class='docblock short'></td>
+                        <td class='docblock short'>
+                             
+                        </td>
                     </tr>
                 </table></section>
     <section id='search' class="content hidden"></section>
@@ -945,33 +1186,44 @@ the the <code>args</code> parameter.</p>
     <section class="footer"></section>
 
     <div id="help" class="hidden">
-        <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
-            <dl>
-                <dt>?</dt>
-                <dd>Show this help dialog</dd>
-                <dt>S</dt>
-                <dd>Focus the search field</dd>
-                <dt>&larrb;</dt>
-                <dd>Move up in search results</dd>
-                <dt>&rarrb;</dt>
-                <dd>Move down in search results</dd>
-                <dt>&#9166;</dt>
-                <dd>Go to active search result</dd>
-            </dl>
-        </div>
-        <div class="infos">
-            <h1>Search tricks</h1>
-            <p>
-                Prefix searches with a type followed by a colon (e.g.
-                <code>fn:</code>) to restrict the search to a given type.
-            </p>
-            <p>
-                Accepted types are: <code>fn</code>, <code>mod</code>,
-                <code>struct</code>, <code>enum</code>,
-                <code>trait</code>, <code>typedef</code> (or
-                <code>tdef</code>).
-            </p>
+        <div>
+            <div class="shortcuts">
+                <h1>Keyboard Shortcuts</h1>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h1>Search Tricks</h1>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>typedef</code> (or
+                    <code>tdef</code>).
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
         </div>
     </div>
 
